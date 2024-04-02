@@ -1,0 +1,114 @@
+@use '_colors.scss' as c;
+@use '_variables.scss' as v;
+
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@100..900&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+html {
+  hanging-punctuation: first last;
+  // font-size: 62.5%;
+}
+
+body {
+  min-height: 100svh;
+  font-family: "Chivo Mono", monospace;
+  // background-color: #264f70;
+  color: c.$white;
+  background: rgb(128,49,94);
+  background: linear-gradient(52deg, rgba(128,49,94,1) 27%, rgba(96,29,60,1) 80%);
+  overflow-x: hidden;
+} 
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+button {
+  background: none;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100svh;
+  padding: 1em;
+
+  & > * {
+    margin-bottom: 3rem;
+  }
+
+  &__header {
+    position: relative;
+    z-index: 10;
+    font-size: v.$fs-700;
+    text-align: center;
+    font-weight: 700;
+    color: c.$tertiary;
+
+    // &::before {
+    //   content: 'Losowanie Pytań';
+    //   position: absolute;
+    //   bottom: 0;
+    //   z-index: -10;
+    //   left: 50%;
+    //   translate: -50% 0;
+    //   // width: 100%;
+    //   // font-size: calc(100svw + 1px);
+    //   color: c.$tertiary-shadow;  
+    // }
+  }
+  
+  &__question {
+    font-size: v.$fs-300;
+    text-align: center;
+    min-height: 10rem;
+    max-width: 60rem;
+  }
+
+  &__btn-random-question {
+    padding: .7em 1.4em;
+    border: 3px solid white;
+    color: c.$white;
+    font-size: v.$fs-400;
+    cursor: pointer;
+  }
+
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 5rem;
+    }
+}
