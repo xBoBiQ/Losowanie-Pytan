@@ -41,16 +41,3 @@ async function getRandomQuestion() {
 
 createQuestionsArray()
 </script>
-
-
-<style>
-  
-  .main__header::before {
-    content: var(--headerText);
-    position: absolute;
-    bottom: 0;
-    font-size: 6rem;
-    
-  }
-
-</style> 
