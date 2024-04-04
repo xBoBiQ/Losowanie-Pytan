@@ -19,7 +19,7 @@ let $questions = ref([]);
 
 async function loadQuestions() {
   try {
-    const response = await fetch('questions.html')
+    const response = await fetch('questions.txt')
     const data = await response.text()
     return data.split('\n').filter(line => line.trim() !== '')
   } catch (error) {
