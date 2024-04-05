@@ -38,6 +38,7 @@ async function createQuestionsArray () {
 }
 
 async function getRandomQuestion() {
+  createQuestionsArray()
   $questions.value = $questions.value.filter((question) => question !== $randomQuestion.value)
   const randomIndex = Math.floor(Math.random() * $questions.value.length)
   console.log($questions.value);
