@@ -104,6 +104,21 @@ li {
     cursor: pointer;
   }
 
+  
+  
+  &__textarea {
+    background-color: c.$quaternary;
+    color: c.$white;
+    border: 2px solid c.$quaternary-dark;
+  }
+
+  &__load-questions-btn {
+    padding: .7em 1.4em;
+    border: 3px solid white;
+    color: c.$white;
+    font-size: v.$fs-400;
+    cursor: pointer;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

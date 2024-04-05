@@ -7,6 +7,9 @@
     <p ref="$questionElement" id="question" class="main__question">{{ $randomQuestion }}</p>
     <button @click="getRandomQuestion()" class="main__btn-random-question">Wygeneruj losowe pytanie</button>
 
+    <h3 >Wklej liste</h3>
+    <textarea class="main__textarea" id="textarea" cols="30" rows="10"></textarea>
+    <button class="main__load-questions-btn" @click="createQuestionsArray()">Załaduj Pytania</button>
   </main>
 </template>
 
@@ -19,17 +22,19 @@ let $questions = ref([]);
 
 async function loadQuestions() {
   try {
-    const response = await fetch('questions.txt')
-    const data = await response.text()
-    return data.split('\n').filter(line => line.trim() !== '')
+    const textarea = document.getElementById('textarea');
+    const data = textarea.value;
+    return data.split('\n').filter(line => line.trim() !== '');
   } catch (error) {
-    console.error('Błąd podczas wczytywania pytań', error)
-    return []
+    console.error('Błąd podczas wczytywania pytań', error);
+    return [];
   }
 }
 
 async function createQuestionsArray () {
   $questions.value = await loadQuestions()
+  const textarea = document.getElementById('textarea');
+  textarea.value = ''
 }
 
 async function getRandomQuestion() {
@@ -39,5 +44,4 @@ async function getRandomQuestion() {
   $randomQuestion.value = $questions.value[randomIndex]
 }
 
-createQuestionsArray()
 </script>
